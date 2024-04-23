@@ -1,0 +1,26 @@
+def es_par(numero):
+    return numero % 2 == 0
+
+def determinar_signo(numero):
+    if numero > 0:
+        return "positivo"
+    elif numero < 0:
+        return "negativo"
+    else:
+        return "cero"
+
+
+
+def calcular_cuadrado(numero):
+    return numero * numero
+
+
+def main():
+    numero1 = 7
+    print(numero1, "es par:", es_par(numero1))
+    numero2 = -10
+    print("El número", numero2, "es", determinar_signo(numero2))
+    numero3 = 5
+    print("El cuadrado de", numero3, "es:", calcular_cuadrado(numero3))
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,26 @@
+package ejerciciosmarcoexpo;
+import java.util.Scanner;
+
+public class eje1 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Ingrese un dato:");
+        String entrada = scanner.nextLine();
+        String tipo = determinarTipoDato(entrada);
+        System.out.println("El dato ingresado es de tipo: " + tipo);
+
+        scanner.close();
+    }
+    private static String determinarTipoDato(String entrada) {
+        if (entrada.matches("-?\\d+")) {
+            return "número entero";
+        } else if (entrada.matches("-?\\d+(\\.\\d+)?")) {
+            return "número flotante";
+        } else if (entrada.equalsIgnoreCase("true") || entrada.equalsIgnoreCase("false")) {
+            return "booleano";
+        } else {
+            return "cadena";
+        }
+    }
+}

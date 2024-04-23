@@ -1,0 +1,25 @@
+def busqueda_intervalo_cerrado(lista, elemento):
+    izquierda = 0
+    derecha = len(lista) - 1
+    
+    while izquierda <= derecha:
+        medio = (izquierda + derecha) // 2
+        
+        if lista[medio] == elemento:
+            return medio
+        
+        if lista[medio] < elemento:
+            izquierda = medio + 1
+        else:
+            derecha = medio - 1
+    return -1
+
+lista_ejemplo = [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+elemento_buscado = 12
+resultado = busqueda_intervalo_cerrado(lista_ejemplo, elemento_buscado)
+
+if resultado != -1:
+    print(f"El elemento {elemento_buscado} está en la posición {resultado}.")
+else:
+    print(f"El elemento {elemento_buscado} no está en la lista.")
+    

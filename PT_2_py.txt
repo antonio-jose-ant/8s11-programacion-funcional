@@ -1,0 +1,49 @@
+def agregar_elemento(lista, elemento):
+    lista.append(elemento)
+    print(f"Elemento '{elemento}' agregado a la lista.")
+
+def eliminar_elemento(lista, elemento):
+    if elemento in lista:
+        lista.remove(elemento)
+        print(f"Elemento '{elemento}' eliminado de la lista.")
+    else:
+        print(f"El elemento '{elemento}' no está en la lista.")
+
+def ordenar_lista(lista):
+    lista.sort()
+    print("Lista ordenada:", lista)
+
+mi_lista = []
+
+while True:
+    print("\n1. Agregar elemento")
+    print("2. Eliminar elemento")
+    print("3. Ordenar lista")
+    print("4. Salir")
+    
+
+
+    opcion = input("Seleccione una opción: ")
+
+    if opcion == "1":
+        elemento = input("Ingrese el elemento que desea agregar: ")
+        agregar_elemento(mi_lista, elemento)
+
+
+    elif opcion == "2":
+        elemento = input("Ingrese el elemento que desea eliminar: ")
+        eliminar_elemento(mi_lista, elemento)
+
+
+    elif opcion == "3":
+        if len(mi_lista) > 0:
+            ordenar_lista(mi_lista)
+
+            
+        else:
+            print("La lista está vacía.")
+    elif opcion == "4":
+        print("¡Hasta luego!")
+        break
+    else:
+        print("Opción inválida. Por favor, seleccione una opción válida.")
