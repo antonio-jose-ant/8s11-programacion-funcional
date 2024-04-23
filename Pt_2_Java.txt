@@ -1,0 +1,39 @@
+package com.mycompany.funcion;
+
+import java.util.Scanner;
+
+public class Funcion {
+
+       public static int funcionPura1(int x) {
+        return x + 2;
+    }
+
+    public static int funcionPura2(int y) {
+        return y * 3;
+    }
+
+    public static int funcionPura3(int z) {
+        return z + z;
+    }
+
+    public static int funcionCombinada(int input1, int input2) {
+        int resultado1 = funcionPura1(input1);
+        int resultado2 = funcionPura2(input2);
+        int resultado3 = funcionPura3(resultado2 + resultado1);
+        return resultado3;
+    }
+    public static void main(String[] args) {
+         
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Ingrese el primer valor: ");
+        int valor1 = scanner.nextInt();
+
+        System.out.print("Ingrese el segundo valor: ");
+        int valor2 = scanner.nextInt();
+
+        int resultadoFinal = funcionCombinada(valor1, valor2);
+        System.out.println("El resultado final es: " + resultadoFinal);
+
+    }
+    }

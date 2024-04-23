@@ -1,0 +1,20 @@
+def identificar_tipo_dato(dato):
+    if dato.lower() == "true" or dato.lower() == "false":
+        return "booleano"
+    try:
+        if "." in dato:
+            float(dato)
+            return "real"
+        else:
+            int(dato)
+            return "entero"
+    except ValueError:
+        return "cadena"
+
+def main():
+    dato = input("Ingrese un dato: ")
+    tipo_dato = identificar_tipo_dato(dato)
+    print(f"El dato ingresado es de tipo {tipo_dato}.")
+
+if __name__ == "__main__":
+    main()

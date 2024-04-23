@@ -1,0 +1,32 @@
+package com.mycompany.expo;
+
+import java.util.Scanner;
+
+public class Expo {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese un dato: ");
+        String dato = scanner.nextLine();
+        String tipoDato = identificarTipoDato(dato);
+        System.out.println("El dato ingresado es de tipo " + tipoDato + ".");
+        scanner.close();
+    }
+
+    public static String identificarTipoDato(String dato) {
+        if (dato.equalsIgnoreCase("true") || dato.equalsIgnoreCase("false")) {
+            return "booleano";
+        }
+        try {
+            if (dato.contains(".")) {
+                Double.parseDouble(dato);
+                return "real";
+            } else {
+                Integer.parseInt(dato);
+                return "entero";
+            }
+        } catch (NumberFormatException e) {
+            return "cadena";
+ 
+}
+    }
+}
