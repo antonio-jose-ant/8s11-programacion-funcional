@@ -1,0 +1,21 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Apr  9 12:11:06 2024
+
+@author: jleon
+"""
+def main():
+    entrada = input("Ingresa un dato: ")
+
+    if entrada.isdigit():
+        print("Tipo entero (int).")
+    elif entrada.replace(".", "", 1).isdigit():
+        print("Tipo decimal (float).")
+    elif entrada.lower() == "true" or entrada.lower() == "false":
+        print("Tipo booleano (bool).")
+    else:
+        print("Tipo cadena (str).")
+
+if __name__ == "__main__":
+    main()
+

@@ -1,0 +1,53 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
+
+package com.mycompany.yolanda;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author jleon
+ */
+public class Yolanda {
+
+    public static void main(String[] args) {
+Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Ingresa el dato: ");
+        String entrada = scanner.nextLine();
+
+        if (esEntero(entrada)) {
+            System.out.println("Tipo entero (int).");
+        } else if (esDecimal(entrada)) {
+            System.out.println("Tipo decimal (float).");
+        } else if (esBooleano(entrada)) {
+            System.out.println("Tipo booleano (boolean).");
+        } else {
+            System.out.println("Tipo cadena (String).");
+        }
+    }
+
+    public static boolean esEntero(String entrada) {
+        try {
+            Integer.parseInt(entrada);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+
+    public static boolean esDecimal(String entrada) {
+        try {
+            Float.parseFloat(entrada);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+
+    public static boolean esBooleano(String entrada) {
+        return entrada.equalsIgnoreCase("true") || entrada.equalsIgnoreCase("false");
+    }
+}
