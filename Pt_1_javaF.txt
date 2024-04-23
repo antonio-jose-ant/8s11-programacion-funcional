@@ -1,0 +1,21 @@
+// Funciones
+
+package equi1_ejerc2;
+
+/**
+ *
+ * @author estre
+ */
+public class Equi1_Ejerc2 {
+    public static void main(String[] args) {
+        int numero = 5;
+        int resultado = duplicar(numero);
+        System.out.println("El doble de " + numero + " es: " + resultado);
+    }
+
+    // Función pura que duplica un número
+    public static int duplicar(int numero) {
+        return numero * 2;
+    }
+    
+}

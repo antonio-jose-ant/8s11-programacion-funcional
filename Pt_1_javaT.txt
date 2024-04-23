@@ -1,0 +1,45 @@
+// Tipo De Datos 
+
+package equi1_ejerc;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author estre
+ */
+public class Equi1_Ejerc {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+         Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Ingresa un valor: ");
+        String input = scanner.nextLine();
+
+        if (esEntero(input)) {
+            System.out.println("El valor ingresado es un entero.");
+        } else if (esDecimal(input)) {
+            System.out.println("El valor ingresado es un decimal.");
+        } else if (esBooleano(input)) {
+            System.out.println("El valor ingresado es un booleano.");
+        } else {
+            System.out.println("El valor ingresado es una cadena.");
+        }
+    }
+
+    public static boolean esEntero(String input) {
+        return input.matches("-?\\d+");
+    }
+
+    public static boolean esDecimal(String input) {
+        return input.matches("-?\\d+(\\.\\d+)?");
+    }
+
+    public static boolean esBooleano(String input) {
+        return input.equalsIgnoreCase("true") || input.equalsIgnoreCase("false");
+    }
+    
+}

@@ -1,0 +1,29 @@
+// Tipo De Datos 
+
+def es_entero(input):
+    try:
+        int(input)
+        return True
+    except ValueError:
+        return False
+
+def es_decimal(input):
+    try:
+        float(input)
+        return True
+    except ValueError:
+        return False
+
+def main():
+    user_input = input("Ingresa un valor: ")
+
+    if es_entero(user_input):
+        print("El valor ingresado es un entero.")
+    elif es_decimal(user_input):
+        print("El valor ingresado es un decimal.")
+    elif user_input.lower() == "true" or user_input.lower() == "false":
+        print("El valor ingresado es un booleano.")
+    else:
+        print("El valor ingresado es una cadena.")
+
+main()  # Llamada a la función main directamente

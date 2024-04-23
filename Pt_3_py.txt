@@ -1,0 +1,22 @@
+//Listas
+
+my_list = []
+
+# Agregar elementos a la lista
+my_list.append(5)
+my_list.append(2)
+my_list.append(8)
+my_list.append(1) 
+
+
+# Ordenar la lista
+my_list.sort()
+
+# Imprimir la lista ordenada
+print("Lista ordenada:", my_list)
+
+# Eliminar un elemento de la lista
+my_list.remove(2)
+
+# Imprimir la lista después de eliminar un elemento
+print("Lista después de eliminar el número 2:", my_list)

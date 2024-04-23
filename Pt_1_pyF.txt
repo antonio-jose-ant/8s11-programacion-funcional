@@ -1,0 +1,15 @@
+// Funciones 
+
+def duplicar(numero):
+    return numero * 2
+
+def main():
+    numero = input("Ingresa un número: ")
+    try:
+        numero = int(numero)
+        resultado = duplicar(numero)
+        print(f"El doble de {numero} es: {resultado}")
+    except ValueError:
+        print("Error: Debes ingresar un número válido.")
+
+main()  # Llamada a la función main directamente

@@ -1,0 +1,13 @@
+def filtrar(condicion, iterable):
+    for elemento in iterable:
+        if condicion(elemento):
+            yield elemento
+
+num_entr = input("Ingrese los numeros separado por comas: ")
+
+numeros = [int(numer) for numer in num_entr.split(',')]
+num_pares = filtrar(lambda x: x % 2 == 0, numeros)
+
+print(list(num_pares)) 
+
+//Evaluacion Perezosa
