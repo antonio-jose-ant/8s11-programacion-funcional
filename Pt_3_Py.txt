@@ -1,0 +1,26 @@
+def busqueda_intervalo_cerrado(lista, elemento):
+    izquierda = 0
+    derecha = len(lista) - 1
+
+    while izquierda <= derecha:
+        medio = (izquierda + derecha) // 2
+
+        if lista[medio] == elemento:
+            return medio
+        elif lista[medio] > elemento:
+            derecha = medio - 1
+        else:
+            izquierda = medio + 1
+
+    return -1
+
+lista_caracteres = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
+print(f"Intervalo definido: {lista_caracteres}")
+
+caracter_buscado = input("Ingrese el carácter que desea buscar en el intervalo: ")
+
+indice_encontrado = busqueda_intervalo_cerrado(lista_caracteres, caracter_buscado)
+if indice_encontrado != -1:
+    print(f"El carácter {caracter_buscado} se encuentra en el índice {indice_encontrado}.")
+else:
+    print("El carácter no se encuentra en el intervalo.")

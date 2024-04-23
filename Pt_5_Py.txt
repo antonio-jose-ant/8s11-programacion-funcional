@@ -1,0 +1,55 @@
+class Arbol:
+    def __init__(self, val):
+        self.val = val
+        self.izqui = None
+        self.der= None
+
+def insertar(raiz, val):
+    if raiz is None:
+        return Arbol(val)
+    if val < raiz.val:
+        raiz.izqui = insertar(raiz.izqui, val)
+    elif val > raiz.val:
+        raiz.der = insertar(raiz.der, val)
+    return raiz
+
+def inorden(raiz):
+    if raiz is not None:
+        inorden(raiz.izqui)
+        print(raiz.val, end=" ")
+        inorden(raiz.der)
+
+def preorden(raiz):
+    if raiz is not None:
+        print(raiz.val, end=" ")
+        preorden(raiz.izqui)
+        preorden(raiz.der)
+
+def postorden(raiz):
+    if raiz is not None:
+        postorden(raiz.izqui)
+        postorden(raiz.der)
+        print(raiz.val, end=" ")
+
+def construir():
+    raiz = None
+    cant= int(input("Ingrese la cantidad de nodos que desea: "))
+    for _ in range(cant):
+        val = int(input("Ingrese nodo: "))
+        raiz = insertar(raiz, val)
+    return raiz
+
+op = input("Elija la opción de recorrido (inorden, preorden, postorden): ").lower()
+arbol = construir()
+
+if op == "inorden":
+    print("Recorrido inorden:")
+    inorden(arbol)
+elif op == "preorden":
+    print("Recorrido preorden:")
+    preorden(arbol)
+elif op == "postorden":
+    print("Recorrido postorden:")
+    postorden(arbol)
+else:
+    print("Opción no válida.")

@@ -1,0 +1,16 @@
+def main():
+    entrada = input("Ingrese un dato: ")
+
+    if entrada.isdigit():
+        tipo = "número entero"
+    elif entrada.replace('.', '', 1).isdigit():
+        tipo = "número flotante"
+    elif entrada.lower() in ['true', 'false']:
+        tipo = "booleano"
+    else:
+        tipo = "cadena"
+
+    print("El dato ingresado es de tipo:", tipo)
+
+if __name__ == "__main__":
+    main()
