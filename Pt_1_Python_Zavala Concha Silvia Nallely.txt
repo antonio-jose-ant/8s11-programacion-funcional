@@ -1,0 +1,36 @@
+def main():
+    # Solicitar al usuario que ingrese un dato
+    entrada = input("Ingrese un dato: ")
+
+    # Determinar el tipo de dato
+    tipo = determinar_tipo(entrada)
+
+    # Imprimir el tipo de dato ingresado
+    print("El dato ingresado es de tipo:", tipo)
+
+
+def determinar_tipo(entrada):
+    # Intentar convertir la entrada a entero
+    try:
+        int(entrada)
+        return "entero"
+    except ValueError:
+        pass
+    
+    # Intentar convertir la entrada a decimal
+    try:
+        float(entrada)
+        return "decimal"
+    except ValueError:
+        pass
+
+    # Verificar si la entrada es un booleano
+    if entrada.lower() == "true" or entrada.lower() == "false":
+        return "booleano"
+    
+    # Si no coincide con ninguno de los casos anteriores, es una cadena
+    return "cadena"
+
+
+if __name__ == "__main__":
+    main()
