@@ -1,0 +1,20 @@
+Rodríguez García Dana Fernanda 
+practica 4 Aplicaciones de las listas
+
+def agregar_elemento(lista, elemento):
+    lista.append(elemento)
+def eliminar_elemento(lista, elemento):
+    if elemento in lista:
+        lista.remove(elemento)
+    else:
+        print("El elemento no está en la lista.")
+def ordenar_lista(lista):
+    lista.sort()
+mi_lista = [3, 1, 4, 1, 5, 9, 2, 6, 5, 20, 25]
+print("Lista original:", mi_lista)
+agregar_elemento(mi_lista, 8)
+print("Lista después de agregar el elemento 8:", mi_lista)
+eliminar_elemento(mi_lista, 1)
+print("Lista después de eliminar el elemento 1:", mi_lista)
+ordenar_lista(mi_lista)
+print("Lista ordenada :", mi_lista)

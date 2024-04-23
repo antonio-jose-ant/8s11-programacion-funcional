@@ -1,0 +1,57 @@
+Rodríguez García Dana Fernanda 
+practica 5 Arboles 
+
+
+class Nodo:
+    def __init__(self, valor):
+        self.valor = valor
+        self.izquierda = None
+        self.derecha = None
+        
+
+def agregar_nodo(raiz, valor):
+
+    if raiz is None:
+        return Nodo(valor)
+    else:
+        if valor <= raiz.valor:
+            raiz.izquierda = agregar_nodo(raiz.izquierda, valor)
+        else:
+            raiz.derecha = agregar_nodo(raiz.derecha, valor)
+    return raiz
+
+def recorrer_preorden(raiz):
+
+    if raiz:
+        print(raiz.valor, end=" ")
+        recorrer_preorden(raiz.izquierda)
+        recorrer_preorden(raiz.derecha)
+
+def recorrer_inorden(raiz):
+
+    if raiz:
+        recorrer_inorden(raiz.izquierda)
+        print(raiz.valor, end=" ")
+        recorrer_inorden(raiz.derecha)
+
+def recorrer_postorden(raiz):
+
+    if raiz:
+        recorrer_postorden(raiz.izquierda)
+        recorrer_postorden(raiz.derecha)
+        print(raiz.valor, end=" ")
+
+# Ejemplo de uso
+raiz = None
+num_nodos = int(input("Ingrese la cant de nodos : "))
+print("Ingresa valores")
+for _ in range(num_nodos):
+    valor = int(input())
+    raiz = agregar_nodo(raiz, valor)
+
+print("Recorrido Pre-orden:")
+recorrer_preorden(raiz)
+print("\nRecorrido Inorden:")
+recorrer_inorden(raiz)
+print("\nRecorrido Post-orden:")
+recorrer_postorden(raiz)

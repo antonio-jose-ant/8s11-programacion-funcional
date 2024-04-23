@@ -1,0 +1,14 @@
+Rodríguez García Dana Fernanda 
+practica 6 evalución perezosa 
+
+naturals :: [Integer]
+naturals = [1..]
+
+evenNumbers :: [Integer] -> [Integer]
+evenNumbers = filter even
+
+main :: IO ()
+main = do
+    let pares = evenNumbers naturals
+    putStrLn "Los primeros numeros pares en el rango es: "
+    print (take 30 pares)
