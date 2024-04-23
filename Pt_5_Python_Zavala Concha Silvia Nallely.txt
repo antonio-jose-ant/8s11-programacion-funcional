@@ -1,0 +1,21 @@
+# Función para buscar un elemento en una lista
+def busqueda_lineal(arreglo, elemento):
+    for i in range(len(arreglo)):  # Iteramos sobre los índices del arreglo
+        if arreglo[i] == elemento:  # Comprobamos si el elemento en el índice actual es igual al elemento buscado
+            return i  # Retornamos el índice donde se encuentra el elemento
+    return -1  # Retornamos -1 si el elemento no se encuentra en el arreglo
+
+# Función principal
+def main():
+    arreglo = [4, 7, 2, 9, 1, 5, 22, 25, 30, 28, 40, 35, 21, 27]  # Definimos el arreglo de números
+    elemento_a_buscar = int(input("Ingrese el número que desea buscar: "))  # Solicitamos al usuario que ingrese el número a buscar
+    
+    indice = busqueda_lineal(arreglo, elemento_a_buscar)  # Llamamos a la función de búsqueda lineal
+    if indice != -1:  # Verificamos si se encontró el elemento
+        print(f"El elemento {elemento_a_buscar} se encuentra en el índice {indice}.")
+    else:
+        print(f"El elemento {elemento_a_buscar} no se encuentra en el arreglo.")
+
+# Llamada a la función principal
+if __name__ == "__main__":
+    main()

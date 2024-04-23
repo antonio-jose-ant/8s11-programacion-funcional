@@ -1,0 +1,83 @@
+# Definición de la clase para un nodo en el árbol binario
+class NodoArbol:
+    def __init__(self, valor):
+        self.valor = valor  # Valor del nodo
+        self.izquierda = None    # Referencia al hijo izquierdo
+        self.derecha = None   # Referencia al hijo derecho
+#valor: Almacena el valor del nodo.
+#izquierda: Es una referencia al hijo izquierdo del nodo.
+#derecha: Es una referencia al hijo derecho del nodo.
+
+
+# se define  la clase para el árbol binario
+class ArbolBinario:
+    def __init__(self):
+        self.raiz = None  # Inicialización del nodo raíz como vacío
+
+    # Método para insertar un valor en el árbol
+    def insertar(self, valor):
+        self.raiz = self._insertar_rec(self.raiz, valor)
+    # Método recursivo para insertar un valor en el árbol
+    def _insertar_rec(self, raiz, valor):
+        if raiz is None:  # Si el nodo actual es vacío, se crea un nuevo nodo con el valor dado
+            raiz = NodoArbol(valor)
+            return raiz
+
+        # Si el valor es menor que el valor del nodo actual, se inserta en el subárbol izquierdo
+        if valor < raiz.valor:
+            raiz.izquierda = self._insertar_rec(raiz.izquierda, valor)
+        # Si el valor es mayor que el valor del nodo actual, se inserta en el subárbol derecho
+        elif valor > raiz.valor:
+            raiz.derecha = self._insertar_rec(raiz.derecha, valor)
+
+        return raiz
+
+    # Método para imprimir el árbol según el tipo de recorrido seleccionado
+    def imprimir_arbol(self, tipo_recorrido):
+        if tipo_recorrido == "preorden":  # Recorrido en preorden
+            self._imprimir_preorden(self.raiz)
+        elif tipo_recorrido == "inorden":  # Recorrido en inorden
+            self._imprimir_inorden(self.raiz)
+        elif tipo_recorrido == "postorden":  # Recorrido en postorden
+            self._imprimir_postorden(self.raiz)
+        print()  # Imprime una nueva línea al final de la impresión del árbol
+
+    # Método privado para el recorrido en preorden
+    def _imprimir_preorden(self, inicio):
+        if inicio is not None:
+            print(inicio.valor, end="-")  # Imprime el valor del nodo actual
+            self._imprimir_preorden(inicio.izquierda)  # Recorre el subárbol izquierdo
+            self._imprimir_preorden(inicio.derecha)  # Recorre el subárbol derecho
+
+    # Método privado para el recorrido en inorden
+    def _imprimir_inorden(self, inicio):
+        if inicio is not None:
+            self._imprimir_inorden(inicio.izquierda)  # Recorre el subárbol izquierdo
+            print(inicio.valor, end="-")  # Imprime el valor del nodo actual
+            self._imprimir_inorden(inicio.derecha)  # Recorre el subárbol derecho
+
+    # Método privado para el recorrido en postorden
+    def _imprimir_postorden(self, inicio):
+        if inicio is not None:
+            self._imprimir_postorden(inicio.izquierda)  # Recorre el subárbol izquierdo
+            self._imprimir_postorden(inicio.derecha)  # Recorre el subárbol derecho
+            print(inicio.valor, end="-")  # Imprime el valor del nodo actual
+
+# Función principal
+def principal():
+    arbol = ArbolBinario()  # Creación de un árbol binario vacío
+
+    n = int(input("Número de nodos: "))  # Solicita al usuario el número de nodos del árbol
+
+    print("Valores de los nodos:")  # Mensaje para solicitar los valores de los nodos
+    for _ in range(n):  # Itera sobre el rango de nodos ingresados
+        valor = int(input())  # Solicita al usuario el valor del nodo
+        arbol.insertar(valor)  # Inserta el valor en el árbol
+
+    tipo_recorrido = input("Tipo de recorrido (preorden, inorden, postorden): ")  # Solicita al usuario el tipo de recorrido
+
+    print("Recorrido", tipo_recorrido + ": ", end="")  # Imprime el mensaje del tipo de recorrido seleccionado
+    arbol.imprimir_arbol(tipo_recorrido)  # Imprime el árbol según el tipo de recorrido seleccionado
+
+if __name__ == "__main__":
+    principal()  # Llama a la función principal si el script se ejecuta directamente

@@ -1,0 +1,45 @@
+# Definimos una función para filtrar los números pares de una lista
+def filtrar_numeros_pares(lista):
+    # Creamos una lista vacía para almacenar los números pares
+    numeros_pares = []
+    
+    # Iteramos sobre cada elemento en la lista
+    for numero in lista:
+        # Verificamos si el número es par usando el operador módulo (%)
+        if numero % 2 == 0:
+            # Si el número es par, lo añadimos a la lista de números pares
+            numeros_pares.append(numero)
+    
+    # Devolvemos la lista de números pares
+    return numeros_pares
+
+# Definimos una función para filtrar los números impares de una lista
+def filtrar_numeros_impares(lista):
+    # Creamos una lista vacía para almacenar los números impares
+    numeros_impares = []
+    
+    # Iteramos sobre cada elemento en la lista
+    for numero in lista:
+        # Verificamos si el número es impar usando el operador módulo (%)
+        if numero % 2 != 0:
+            # Si el número es impar, lo añadimos a la lista de números impares
+            numeros_impares.append(numero)
+    
+    # Devolvemos la lista de números impares
+    return numeros_impares
+
+# Solicitamos al usuario que ingrese los números separados por comas
+entrada_usuario = input("Ingrese los números separados por comas: ")
+
+# Convertimos la entrada del usuario en una lista de números enteros
+numeros = [int(numero) for numero in entrada_usuario.split(',')]
+
+# Llamamos a la función para filtrar los números pares de la lista ingresada por el usuario
+numeros_pares = filtrar_numeros_pares(numeros)
+
+# Llamamos a la función para filtrar los números impares de la lista ingresada por el usuario
+numeros_impares = filtrar_numeros_impares(numeros)
+
+# Imprimimos los números pares e impares filtrados
+print("Números pares:", numeros_pares)
+print("Números impares:", numeros_impares)
